@@ -5,12 +5,16 @@
   "main": "index.js",
   "scripts": {
     "develop": "webpack-dev-server --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "lint": "eslint src/**/*.js[x]",
+    "prettier": "prettier src/**/*.js[x] --write",
+    "husky-install": "husky install"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/KotoAKira/init-react-project"
   },
+  "lint-staged": "lint-staged --config lint-staged.js",
   "author": "KotoAkira",
   "license": "ISC",
   "dependencies": {
@@ -24,8 +28,13 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.18.2",
+    "eslint": "^8.16.0",
+    "eslint-plugin-react": "^7.30.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.0",
+    "prettier": "^2.6.2",
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.9.0"
