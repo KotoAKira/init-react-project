@@ -9,8 +9,12 @@
     "lint": "eslint src/**/*.js[x]",
     "prettier": "prettier src/**/*.js[x] --write",
     "lint-staged": "lint-staged --config lint-staged.js",
-    "husky-install": "husky install"
+    "husky-install": "husky install",
+    "prettier::hook": "prettier --config .prettierrc --write \"src/**/*.{js, jsx}\""
   },
+  "pre-commit": [
+    "prettier::hook"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/KotoAKira/init-react-project"
