@@ -33,7 +33,7 @@ describe('react-hook-form testing', () => {
 
     cy.get(submitInput).click();
 
-    cy.get(errorOutput);    
+    cy.get(errorOutput).should('be.visible');    
   });
 
 
