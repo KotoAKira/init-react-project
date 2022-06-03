@@ -1,7 +1,11 @@
+import { useState } from 'react'
 import image from 'Images/903.jpg'
 import { useForm } from 'react-hook-form'
 
 const App = () => {
+    const [name, setName] = useState('')
+    const [lastName, setLastName] = useState('')
+
     const {
         handleSubmit,
         register,
@@ -11,8 +15,8 @@ const App = () => {
     })
 
     const onSubmit = values => {
-        console.log('name', values.name)
-        console.log('last name', values.lastName)
+        setName(values.name)
+        setLastName(values.lastName)
     }
 
     return (
@@ -41,9 +45,11 @@ const App = () => {
                 />
                 <input type="submit" value="Submit" />
                 {isSubmitted && !isValid && (
-                    <h6 id="error">Vields are required</h6>
+                    <h6 aria-label="errorOutput">Vields are required</h6>
                 )}
             </form>
+            {name && <p aria-label="nameOutput">{name}</p>}
+            {lastName && <p aria-label="lastNameOutput">{lastName}</p>}
             <img style={{ width: 200 }} src={image}></img>
         </>
     )
